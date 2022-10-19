@@ -1,0 +1,9 @@
+Tasks
+
+Task(Hours)
+1) Meeting with the Client to get more details regarding the project. (2)
+2) Studying the data and having a clear idea about relations.As teh data is related to biology it takes more time. (4)
+3) Going through the existing work done related to datasets. (3)
+4) Data Cleaning (2)
+5) Render a starter visualization based on the sketch, using D3. (3)
+6) Designing the user interface. (2)
