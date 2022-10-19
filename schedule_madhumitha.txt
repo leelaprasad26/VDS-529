@@ -1,6 +1,6 @@
 Schedule - 
 
-Hours	Tasks
+Hours	  Tasks
 2		Meeting the client to get clarification on some queries
 3		Understand the many features present in the data and have a clear understanding of the dataset
 2		Dropping negative values and data pre-processing
