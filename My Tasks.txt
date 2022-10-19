@@ -1,8 +1,0 @@
-## TASK ASSIGNED
-
-1.Meeting client to get more details about the project (2)
-2.Going to the existing data to check the flow of the visualization build (3)
-3.Data cleaning (2)
-4.Understanding the particular data set for Bipolar disorder class (3) 
-5.PLanning a design flow for the visualization that need to build (3)
-6.Designing a intial user interface page (3)
