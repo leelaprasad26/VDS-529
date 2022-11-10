@@ -67,4 +67,55 @@ console.log(class1,class2)
       }
 
       }
+      if(dataIterate.label=="2"){
+
+
+        for (dataFeatureKey of Object.keys(dataIterate)) {
+        const dataFeatureValue = dataIterate[dataFeatureKey];
+        //console.log(dataFeatureKey, dataFeatureValue)
+        //console.log(Object.keys(titles))
+        const topics = Object.keys(titles);
+        for (topic of topics) {
+          // console.log(topic)
+          if (titles[topic].includes(dataFeatureKey)) {
+            if (valuesWithTopics2[topic]) {
+              valuesWithTopics2[topic].push(dataFeatureValue);
+            } else {
+              valuesWithTopics2[topic] = [dataFeatureValue]
+            }
+          }
+        }
+      }
+
+      }
       
+    }
+
+
+    
+      
+    
+
+    console.log(valuesWithTopics0,valuesWithTopics1,valuesWithTopics2);//max and minin ortalamsını verir.
+
+    // get avg-max-min
+    for (valuesIndex in valuesWithTopics0) {
+      const avg = valuesWithTopics0[valuesIndex].reduce((a,b) => parseInt(a)+parseInt(b), 0) / valuesWithTopics0[valuesIndex].length;
+      const min = Math.min(...valuesWithTopics0[valuesIndex])
+      const max=Math.max(...valuesWithTopics0[valuesIndex])
+      valuesWithTopics0[valuesIndex] = avg;
+    }
+
+    for (valuesIndex in valuesWithTopics1) {
+      const avg = valuesWithTopics1[valuesIndex].reduce((a,b) => parseInt(a)+parseInt(b), 0) / valuesWithTopics1[valuesIndex].length;
+      const min = Math.min(...valuesWithTopics1[valuesIndex])
+      const max=Math.max(...valuesWithTopics1[valuesIndex])
+      valuesWithTopics1[valuesIndex] = avg;
+    }
+
+    for (valuesIndex in valuesWithTopics2) {
+      const avg = valuesWithTopics2[valuesIndex].reduce((a,b) => parseInt(a)+parseInt(b), 0) / valuesWithTopics2[valuesIndex].length;
+      const min = Math.min(...valuesWithTopics2[valuesIndex])
+      const max=Math.max(...valuesWithTopics2[valuesIndex])
+      valuesWithTopics2[valuesIndex] = avg;
+    }
