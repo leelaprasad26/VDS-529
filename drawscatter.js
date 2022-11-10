@@ -126,5 +126,64 @@ const data1 = [];
         
     });
     }
+    // append the bar rectangles to the svg element
+    console.log(data1)//1. 20 ->55 55 ->90 2 115
+    const selection=svg.selectAll("whatever")
+        .data(data1)
+        .enter();
+
+    var tooltip2 = d3.select("#div_customContent")
+    .append("div")
+        .style("position", "absolute")
+        .style("visibility", "hidden")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width", "1px")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
+        .html("<p>I'm a tooltip written in HTML</p><img src='https://github.com/holtzy/D3-graph-gallery/blob/master/img/section/ArcSmal.png?raw=true'></img><br>Fancy<br><span style='font-size: 40px;'>Isn't it?</span>");
+
+    //circle ekliyor ve renklendiriyor
+    var selectionelement
+    selection.append("circle")
     
+    .on("mouseover", function(d){ return tooltip2.style("visibility", "visible");})
+    .on("mousemove", function(d){return (tooltip2.html("class:"+transform(givenclass)+"<br>Feature:"+d.path[0]["__data__"].key+"<br>min value:"+d.path[0]["__data__"].value.min)).style("top", (event.pageY-150)+"px").style("left",(event.pageX-150)+"px");})
+    .on("mouseout", function(d){return tooltip2.style("visibility", "hidden");})
+
+    .attr("cx", function(d){ return x(d.key) })
+    .attr("cy", function(d){ return y(d.value.min) })
+    .attr("r", 15)
+    .style("fill", "blue")
+
+    selection.append("circle")
+    //selectionelement="class:"+transform(givenclass)+"\n max value:"+d.path[0]["__data__"].value.max+"\n min value:"+d.path[0]["__data__"].value.min+"\n avg value:"+d.path[0]["__data__"].value.avg
+    .on("mouseover", function(d){ return tooltip2.style("visibility", "visible");})
+    .on("mousemove", function(d){ return (tooltip2.html("class:"+transform(givenclass)+"<br>Feature:"+ d.path[0]["__data__"].key+"<br>max value:"+d.path[0]["__data__"].value.max)).style("top", (event.pageY-150)+"px").style("left",(event.pageX-150)+"px");})
+    .on("mouseout", function(d){return tooltip2.style("visibility", "hidden");})
+
+    .attr("cx", function(d){ return x(d.key) })
+    .attr("cy", function(d){console.log(d.value.max); return y(d.value.max) })
+    .attr("r", 15)
+    .style("fill", "red")
+
+    selection.append("circle")
+    .on("mouseover", function(d){ return tooltip2.style("visibility", "visible");})
+    .on("mousemove", function(d){return (tooltip2.html("class:"+transform(givenclass)+"<br>Feature:"+d.path[0]["__data__"].key+"<br>avg value:"+d.path[0]["__data__"].value.avg)).style("top", (event.pageY-150)+"px").style("left",(event.pageX-150)+"px");})
+    .on("mouseout", function(d){return tooltip2.style("visibility", "hidden");})
+
+    .attr("cx", function(d){ return x(d.key) })
+    .attr("cy", function(d){ console.log(d.value.avg); return y(parseInt(d.value.avg)) })
+    .attr("r", 15)
+    .style("fill", "green")
+    //console.log(data1[1].value.min)
+    
+    
+    var chartData = [
+        {name: "Max Value", color: "#af6d00"},
+        {name: "Avarage Value", color: "#007f00"},
+        {name: "Min Value", color: "#0000a8"},
+   
+       ];
+
 
