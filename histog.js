@@ -119,3 +119,47 @@ console.log(class1,class2)
       const max=Math.max(...valuesWithTopics2[valuesIndex])
       valuesWithTopics2[valuesIndex] = avg;
     }
+      
+      //console.log(valuesWithTopics);
+
+    const values = Object.values(valuesWithTopics0);
+    const max = values.reduce((a, b) => Math.max(a, b), 0);
+    const min = values.reduce((a, b) => Math.min(a, b), 0);
+
+    // X axis: scale and draw:
+    const x = d3.scaleBand()
+    .range([0, width])
+    
+    .domain(Object.keys(titles))     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
+    .padding(0.5);
+    svg.append("g")
+      .attr("transform", `translate(0, ${height})`)
+      .call(d3.axisBottom(x));
+
+    // Y axis: scale and draw:
+    const y = d3.scaleLinear()
+      .range([height, 0]);
+    y.domain([min-min*1/10, max+max*1/10]);   // d3.hist has to be called before the Y axis obviously
+    svg.append("g")
+      .call(d3.axisLeft(y));
+
+    console.log(data);
+
+
+    scatter(class1,class2,color0,color1,eval("valuesWithTopics"+class1),eval("valuesWithTopics"+class2),svg,x,y,height,url)
+
+    console.log(valuesWithTopics0)
+    
+    console.log(valuesWithTopics1)
+    console.log(valuesWithTopics2)
+    console.log(eval("valuesWithTopics"+class1),class1)
+    console.log(eval("valuesWithTopics"+class2),class2)
+
+
+    
+
+    
+
+     
+  });
+}
