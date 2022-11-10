@@ -79,7 +79,6 @@ function scatterPlot(id,url,givenTopic,givenclass) {
 
     }
     
-        
     //console.log(valuesWithFeatures0);//max and minin ortalamsını verir.
     for (valuesIndex in valuesWithFeatures0) {
     const avg = valuesWithFeatures0[valuesIndex].reduce((a,b) => parseInt(a)+parseInt(b), 0) / valuesWithFeatures0[valuesIndex].length;
@@ -178,8 +177,9 @@ const data1 = [];
         {name: "Min Value", color: "blue"},
    
        ];
-        
-        //Initialize legend
+
+
+     //Initialize legend
     var legendItemSize = 12;
     var legendSpacing = 4;
     var xOffset = 50;
@@ -217,4 +217,3 @@ const data1 = [];
     });
 }
 
-    

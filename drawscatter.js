@@ -185,9 +185,9 @@ const data1 = [];
         {name: "Min Value", color: "#0000a8"},
    
        ];
-        
-        
-        //Initialize legend
+
+
+     //Initialize legend
     var legendItemSize = 12;
     var legendSpacing = 4;
     var xOffset = 50;
@@ -224,5 +224,4 @@ const data1 = [];
 
     });
 }
-
 

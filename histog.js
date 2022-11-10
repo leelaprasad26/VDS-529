@@ -98,7 +98,7 @@ console.log(class1,class2)
 
     console.log(valuesWithTopics0,valuesWithTopics1,valuesWithTopics2);//max and minin ortalamsını verir.
 
-    // get avg-max-min
+    // get avg-max-min-sağlıklı insan-
     for (valuesIndex in valuesWithTopics0) {
       const avg = valuesWithTopics0[valuesIndex].reduce((a,b) => parseInt(a)+parseInt(b), 0) / valuesWithTopics0[valuesIndex].length;
       const min = Math.min(...valuesWithTopics0[valuesIndex])
@@ -119,8 +119,8 @@ console.log(class1,class2)
       const max=Math.max(...valuesWithTopics2[valuesIndex])
       valuesWithTopics2[valuesIndex] = avg;
     }
-      
-      //console.log(valuesWithTopics);
+
+    //console.log(valuesWithTopics);
 
     const values = Object.values(valuesWithTopics0);
     const max = values.reduce((a, b) => Math.max(a, b), 0);

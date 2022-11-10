@@ -32,7 +32,7 @@ function scatter(class1,class2,color0,color1,valuesWithTopics0,valuesWithTopics1
         value: valuesWithTopics1[topicKey]
       });
     }
-// append the bar rectangles to the svg element
+    // append the bar rectangles to the svg element
     console.log(data1)//1. 20 ->55 55 ->90 2 115
     svg.selectAll("rect1")
       .data(data1)
@@ -63,9 +63,9 @@ function scatter(class1,class2,color0,color1,valuesWithTopics0,valuesWithTopics1
             {name: "Min Value", color: "#0000a8"},
        
            ];
-  
-  
-          //Initialize legend
+    
+    
+         //Initialize legend
         var legendItemSize = 12;
         var legendSpacing = 4;
         var xOffset = 50;
@@ -180,6 +180,3 @@ function scatter(class1,class2,color0,color1,valuesWithTopics0,valuesWithTopics1
      
 
 }
-  
-  
-        
