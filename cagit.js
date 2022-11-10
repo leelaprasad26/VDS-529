@@ -178,5 +178,43 @@ const data1 = [];
         {name: "Min Value", color: "blue"},
    
        ];
+        
+        //Initialize legend
+    var legendItemSize = 12;
+    var legendSpacing = 4;
+    var xOffset = 50;
+    var yOffset = 0;
+    var legend = d3
+    .select('#legend')
+    .append('svg')
+        .attr('style', 'position:absolute;z-index:-9999999;')
+        .selectAll('.legendItem')
+        .data(chartData);
+
+    //Create legend items
+    legend
+    .enter()
+    .append('rect')
+    .attr('class', 'legendItem')
+    .attr('width', legendItemSize)
+    .attr('height', legendItemSize)
+    .style('fill', d => d.color)
+    .attr('transform',
+            (d, i) => {
+                var x = xOffset;
+                var y = yOffset + (legendItemSize + legendSpacing) * i;
+                return `translate(${x}, ${y})`;
+            });
+
+    //Create legend labels
+    legend
+    .enter()
+    .append('text')
+    .attr('x', xOffset + legendItemSize + 5)
+    .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
+    .text(d => d.name);  
+
+    });
+}
 
     
