@@ -8,6 +8,13 @@ body {
     font-size: 20px;
     color: #111;
   }
+  .main{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow-y: auto;
+    display: flex;
+  }
   .container {
     padding: 80px 120px;
   }
@@ -121,49 +128,71 @@ body {
     background-color: red !important;
   }
 .btn-group{
-    position: relative;
-
-    left: 50px;
-    top: 150px;
+    position: relative;  
+    width: calc(350px - 20px);
+    padding: 20px;
+    margin: 20px;
+    overflow: auto;
+    height: calc(100vh - 50px);
 
 }
+.density-title{
+  width: calc(100% - 50px);
+  padding: 10px;
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  background-color: gray;
+  color: white;
+}
+.right-side{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.histogram-area, .density-area{
+  width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.figure-area{
+  display: flex;
+  width: 480px;
+  flex-wrap: wrap;
+  height: 1100px;
+}
 .figure1{
-  position: relative;
-    left:  1265px;
-    top: -4250px;
-    height: 450px;
-    width: 480px;
-
+  position: relative;    
+  height: 450px;
+  width: 480px;
+  padding: 10px;
+  margin-top: 70px;
 }
 
 .figure2{
   position: relative;
-  left:  1265px;
-  top: -4170px;
   height: 450px;
   width: 480px;
 
 }
 .person{
   position: relative;
-  left: 380px;
-  top: -4500px;
+  /* left: 380px;
+  top: -4500px; */
   height: 600px;
   width: 600px;
 }
-.svk{
+.svk,.svk1,.svk2, .svk4,.svk5, .svk6,.svk7,.svk8,.svk9,.svk10,.svk11{
     position: relative;
-    left:  350px;
-    top: -625px;
     height: 450px;
     width: 450px;
+    margin: 10px;
 }
 .svk1{
   position: relative;
-  left: 780px;
-  top: -1075px;
   height: 450px;
-    width: 450px;
+  width: 450px;
 }
 
 /* density plot area */
@@ -171,8 +200,6 @@ body {
   /* border: solid 1px #b8b8b8;
   background-color: #bdbdbd ; */
   position: relative;
-  left: 310px;
-  top: -1070px;
   height: 300px;
   width: 300px;
 }
@@ -180,15 +207,12 @@ body {
   /* border: solid 1px #b8b8b8;
   background-color: #bdbdbd ; */
   position: relative;
-  left: 625px;
-  top: -1370px;
+ 
   height: 300px;
   width: 300px;
 }
 .svk5{
   position: relative;
-  left: 940px;
-  top: -1670px;
   height: 300px;
   width: 300px;
 }
@@ -196,22 +220,16 @@ body {
 
 .svk6{
   position: relative;
-  left: 310px;
-  top: -1620px;
   height: 300px;
   width: 300px;
 }
 .svk7{
   position: relative;
-  left: 625px;
-  top: -1920px;
   height: 300px;
   width: 300px;
 }
 .svk8{
   position: relative;
-  left: 940px;
-  top: -2220px;
   height: 300px;
   width: 300px;
 }
@@ -219,22 +237,16 @@ body {
 
 .svk9{
   position: relative;
-  left: 310px;
-  top: -2175px;
   height: 300px;
   width: 300px;
 }
 .svk10{
   position: relative;
-  left: 625px;
-  top: -2475px;
   height: 300px;
   width: 300px;
 }
 .svk11{
   position: relative;
-  left: 940px;
-  top: -2775px;
   height: 300px;
   width: 300px;
 }

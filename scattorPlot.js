@@ -83,6 +83,8 @@ function scatter(class1,class2,color0,color1,valuesWithTopics0,valuesWithTopics1
         }
         //console.log(url)
         var chartData = [
+          
+          
           {name:"Class:"+transform(class1), color: color0},
           {name:"Class:"+transform(class2), color: color1},
           
@@ -98,7 +100,7 @@ function scatter(class1,class2,color0,color1,valuesWithTopics0,valuesWithTopics1
       var legend = d3
       .select('#div_customContent')
       .append('svg')
-          .attr('style', 'position:absolute;z-index:-9999999;top: 80px;left: 350px;')
+          .attr('style', 'position:absolute;z-index:-9999999;top: 40px;left: 350px;')
           .selectAll('.legendItem')
           .data(chartData);
   
@@ -124,6 +126,101 @@ function scatter(class1,class2,color0,color1,valuesWithTopics0,valuesWithTopics1
       .attr('x', xOffset + legendItemSize + 5)
       .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
       .text(d => d.name);  
+      var chartData = [
+        {name:"Please Click On Any Bar To See "},
+        
+        
+        
+   
+       ];
+
+
+     //histogram legend
+    var legendItemSize = 12;
+    var legendSpacing = 4;
+    var xOffset = 50;
+    var yOffset = 0;
+    var legend = d3
+    .select('#div_customContent')
+    .append('svg')
+        .attr('style', 'position:absolute;z-index:-9999999;top: 20px;left: 430px;')
+        .selectAll('.legendItem')
+        .data(chartData);
+
+    //Create legend items
+    // legend
+    // .enter()
+    // .append('rect')
+    // .attr('class', 'legendItem')
+    // .attr('width', legendItemSize)
+    // .attr('height', legendItemSize) 
+    // .style('fill', d => d.color)
+    // .attr('transform',
+    //         (d, i) => {
+    //             var x = xOffset;
+    //             var y = yOffset + (legendItemSize + legendSpacing) * i;
+    //             return `translate(${x}, ${y})`;
+    //         });
+
+    //Create legend labels
+    legend
+    .enter()
+    .append('text')
+    .attr('x', xOffset + legendItemSize + 5)
+    .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
+    .text(d => d.name); 
+    
+    
+    legend
+    .enter()
+    .append('text')
+    .attr('x', xOffset + legendItemSize + 5)
+    .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
+    .text(d => d.name);  
+    var chartData = [
+      {name:"The Box And Density Plots"},
+      
+      
+      
+ 
+     ];
+
+
+   //histogram legend
+  var legendItemSize = 12;
+  var legendSpacing = 4;
+  var xOffset = 50;
+  var yOffset = 0;
+  var legend = d3
+  .select('#div_customContent')
+  .append('svg')
+      .attr('style', 'position:absolute;z-index:-9999999;top: 40px;left: 450px;')
+      .selectAll('.legendItem')
+      .data(chartData);
+
+  //Create legend items
+  // legend
+  // .enter()
+  // .append('rect')
+  // .attr('class', 'legendItem')
+  // .attr('width', legendItemSize)
+  // .attr('height', legendItemSize) 
+  // .style('fill', d => d.color)
+  // .attr('transform',
+  //         (d, i) => {
+  //             var x = xOffset;
+  //             var y = yOffset + (legendItemSize + legendSpacing) * i;
+  //             return `translate(${x}, ${y})`;
+  //         });
+
+  //Create legend labels
+  legend
+  .enter()
+  .append('text')
+  .attr('x', xOffset + legendItemSize + 5)
+  .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
+  .text(d => d.name); 
+
 
       const titles1 = {    
         "temporal":["mean_time","max_time"],

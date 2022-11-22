@@ -132,7 +132,7 @@ d3.csv("dosyalar/all_features_300_scene_1_complete.csv").then( function(data1) {
       .attr("stroke-linejoin", "round")
       .on("click",function(d){fuc(subfeatures),fuc1(subfeatures);})
       .on("mouseover", function(d){return tooltip2.style("visibility", "visible");})
-      .on("mousemove", function(d){console.log(d);return (tooltip2.html("values: "+"<br>Scene:1"+"<br>"+"Subfeature: "+subfeatures)).style("top", (event.pageY-250)+"px").style("left",(event.pageX-250)+"px");})
+      .on("mousemove", function(d){console.log(d);return (tooltip2.html("Scene:1"+"<br>"+"Subfeature: "+subfeatures)).style("top", (event.pageY-250)+"px").style("left",(event.pageX-250)+"px");})
       .on("mouseout", function(d){return tooltip2.style("visibility", "hidden");})
       
       .attr("d",  d3.line()
@@ -153,7 +153,7 @@ d3.csv("dosyalar/all_features_300_scene_1_complete.csv").then( function(data1) {
    
       .on("click",function(d){fuc(subfeatures),fuc1(subfeatures);})
       .on("mouseover", function(d){return tooltip2.style("visibility", "visible");})
-      .on("mousemove", function(d){console.log(d);return (tooltip2.html("values: "+"<br>Scene:1"+"<br>"+"Subfeature: "+subfeatures)).style("top", (event.pageY-250)+"px").style("left",(event.pageX-250)+"px");})
+      .on("mousemove", function(d){console.log(d);return (tooltip2.html("Scene:1"+"<br>"+"Subfeature: "+subfeatures)).style("top", (event.pageY-250)+"px").style("left",(event.pageX-250)+"px");})
       .on("mouseout", function(d){return tooltip2.style("visibility", "hidden");})
       .attr("d",  d3.line()
       
@@ -186,104 +186,105 @@ d3.csv("dosyalar/all_features_300_scene_1_complete.csv").then( function(data1) {
 
 // Function to compute density
 
-// var chartData = [
-//   {name:"Scene1",color:"red"},
+var chartData = [
+  {name:"Scene1",color:"red"},
  
  
 
-//  ];
-// var legendItemSize = 12;
-// // console.log("hello7")
-//       var legendSpacing = 4;
-//       var xOffset = 00;
-//       var yOffset = 0;
-//       var legend = d3
-//       .select(id)
-//       .append('svg')
-//           .attr('style', 'position:absolute;top: 0px;left:  40px;')
-//           .selectAll('.legendItem')
-//           .data(chartData);
+ ];
+var legendItemSize = 12;
+// console.log("hello7")
+      var legendSpacing = 4;
+      var xOffset = 00;
+      var yOffset = 0;
+      var legend = d3
+      .select(id)
+      .append('svg')
+          .attr('style', 'position:absolute;top: 15px;left:  90px;')
+          .selectAll('.legendItem')
+          .data(chartData);
   
-//       //Create legend items
-//       legend
-//       .enter()
-//       .append('rect')
-//       .attr('class', 'legendItem')
-//       .attr('width', legendItemSize)
-//       .attr('height', legendItemSize) 
-//       .style('fill', d => d.color)
-//       .attr('transform',
-//               (d, i) => {
-//                   var x = xOffset;
-//                   var y = yOffset + (legendItemSize + legendSpacing) * i;
-//                   return `translate(${x}, ${y})`;
-//               });
+      //Create legend items
+      legend
+      .enter()
+      .append('rect')
+      .attr('class', 'legendItem')
+      .attr('width', legendItemSize)
+      .attr('height', legendItemSize) 
+      .style('fill', d => d.color)
+      .attr('transform',
+              (d, i) => {
+                  var x = xOffset;
+                  var y = yOffset + (legendItemSize + legendSpacing) * i;
+                  return `translate(${x}, ${y})`;
+              });
   
-//       //Create legend labels
-//       legend
-//       .enter()
-//       .append('text')
-//       .attr('x', xOffset + legendItemSize + 5)
-//       .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
-//       .text(d => d.name);  
-//       // drawperson(id)
-//       svg.append("text")
-//       .attr("x", 0)
-//       .attr("y", -50)
-//       .attr("text-anchor", "left")
-//       .style("font-size", "22px")
-//       .text("A d3.js heatmap");
+      //Create legend labels
+      legend
+      .enter()
+      .append('text')
+      .attr('x', xOffset + legendItemSize + 5)
+      .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
+      .text(d => d.name);  
+      // drawperson(id)
+      svg.append("text")
+      .attr("x", 0)
+      .attr("y", -50)
+      .attr("text-anchor", "left")
+      .style("font-size", "22px")
+      .text("A d3.js heatmap");
 
 
 
-      // var chartData = [
-      //   {name:"Scene2",color:"blue"}
+      var chartData = [
+        {name:"Scene2",color:"blue"}
        
        
        
       
-      //  ];
-      // var legendItemSize = 12;
-      // // console.log("hello7")
-      //       var legendSpacing = 4;
-      //       var xOffset = 00;
-      //       var yOffset = 0;
-      //       var legend = d3
-      //       .select(id)
-      //       .append('svg')
-      //           .attr('style', 'position:absolute;top: 0px;left:  120px;')
-      //           .selectAll('.legendItem')
-      //           .data(chartData);
+       ];
+      var legendItemSize = 12;
+      // console.log("hello7")
+            var legendSpacing = 4;
+            var xOffset = 00;
+            var yOffset = 0;
+            var legend = d3
+            .select(id)
+            .append('svg')
+                
+                .attr('style', 'position:absolute;top: 15px;left:  168px;')
+                .selectAll('.legendItem')
+                .data(chartData);
         
-      //       //Create legend items
-      //       legend
-      //       .enter()
-      //       .append('rect')
-      //       .attr('class', 'legendItem')
-      //       .attr('width', legendItemSize)
-      //       .attr('height', legendItemSize) 
-      //       .style('fill', d => d.color)
-      //       .attr('transform',
-      //               (d, i) => {
-      //                   var x = xOffset;
-      //                   var y = yOffset + (legendItemSize + legendSpacing) * i;
-      //                   return `translate(${x}, ${y})`;
-      //               });
+            //Create legend items
+            legend
+            .enter()
+            .append('rect')
+            .attr('class', 'legendItem')
+            .attr('width', legendItemSize)
+            .attr('height', legendItemSize) 
+            .style('fill', d => d.color)
+            .attr('transform',
+                    (d, i) => {
+                        var x = xOffset;
+                        var y = yOffset + (legendItemSize + legendSpacing) * i;
+                        return `translate(${x}, ${y})`;
+                    });
         
       //       //Create legend labels
-      //       legend
-      //       .enter()
-      //       .append('text')
-      //       .attr('x', xOffset + legendItemSize + 5)
-      //       .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
-      //       .text(d => d.name);  
-      //       // drawperson(id)
-      //       svg.append("text")
-      //       .attr("x", 0)
-      //       .attr("y", -50)
-      //       .attr("text-anchor", "left")
-      //       .style("font-size", "22px")
-      //       .text("A d3.js heatmap");
+            legend
+            .enter()
+            .append('text')
+            .attr('x', xOffset + legendItemSize + 5)
+            .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
+            .text(d => d.name);  
+            // drawperson(id)
+            svg.append("text")
+            .attr("x", 0)
+            .attr("y", -50)
+            .attr("text-anchor", "left")
+            .style("font-size", "22px")
+            .text("A d3.js heatmap");
 
 
       // const xAxisGrid = d3.axisBottom(x).tickSize(-INNER_HEIGHT).tickFormat('').ticks(10);
@@ -309,7 +310,7 @@ d3.csv("dosyalar/all_features_300_scene_1_complete.csv").then( function(data1) {
                   var legend = d3
                   .select(id)
                   .append('svg')
-                      .attr('style', 'position:absolute;top: 0px;left:  120px;')
+                  .attr('style', 'position:absolute;top: 0px;left:  132px;')
                       .selectAll('.legendItem')
                       .data(chartData);
               
@@ -342,6 +343,49 @@ d3.csv("dosyalar/all_features_300_scene_1_complete.csv").then( function(data1) {
                   .attr("text-anchor", "left")
                   .style("font-size", "22px")
                   .text("A d3.js heatmap");
+
+
+
+                //   var chartData = [
+                //     {name: "DENSITY GRAPH FOR ALL THE SUB FEATURES", color: "red"}
+                    
+                //    ];
+            
+            
+                //  //Initialize legend
+                // var legendItemSize = 12;
+                // var legendSpacing = 4;
+                // var xOffset = 50;
+                // var yOffset = 0;
+                // var legend = d3
+                // .select('#MY_div')
+                // .append('svg')
+                // .attr('style', 'position:absolute;z-index: -99999;top: 20px;left: 20px;')
+                //     .selectAll('.legendItem')
+                //     .data(chartData);
+            
+                // //Create legend items
+                // // legend
+                // // .enter()
+                // // .append('rect')
+                // // .attr('class', 'legendItem')
+                // // .attr('width', legendItemSize)
+                // // .attr('height', legendItemSize)
+                // // .style('fill', d => d.color)
+                // // .attr('transform',
+                // //         (d, i) => {
+                // //             var x = xOffset;
+                // //             var y = yOffset + (legendItemSize + legendSpacing) * i;
+                // //             return `translate(${x}, ${y})`;
+                // //         });
+            
+                // //Create legend labels
+                // legend
+                // .enter()
+                // .append('text')
+                // .attr('x', xOffset + legendItemSize + 5)
+                // .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
+                // .text(d => d.name);  
 
 
 }

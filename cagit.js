@@ -36,7 +36,7 @@ function scatterPlot(id,url,givenTopic,givenclass,iddensity) {
     
 
     // set the dimensions and margins of the graph
-    const margin = { top: 10, right: 30, bottom: 30, left: 40 },
+    const margin = { top: 10, right: 30, bottom: 30, left: 70 },
         width = 450 - margin.left - margin.right,
         height =450 - margin.top - margin.bottom;
 
@@ -49,7 +49,7 @@ function scatterPlot(id,url,givenTopic,givenclass,iddensity) {
         .attr("transform",
         `translate(${margin.left},${margin.top})`);
 
-        
+        document.querySelector("#density-title").style.display="block";
 
     // get the data
     d3.csv(url).then(function (data) {
@@ -376,6 +376,7 @@ const data1 = [];
         }
         
     }
+    
 
     function getLastLines(key,dvaluemax){
         let x1=dvaluemax
@@ -401,9 +402,36 @@ const data1 = [];
             return x(4)
             
         }
+        
         else{
             return x(x1)
         }
+
+    }
+    function getminLine(key,dvaluemin) {
+        let x1=dvaluemin
+        if(key=="det"){
+            return x(-4)
+         }
+         else{
+            return x1
+
+         }
+
+        
+    }
+
+    function getminpos(key,dminvalue){
+        var x1=dminvalue
+
+        
+        if(key=="det"){
+            return x(-4)
+         }
+         else{
+            return x1
+
+         }
 
     }
     //vertline
@@ -443,7 +471,7 @@ const data1 = [];
     .data(data1)
     .enter()
     .append("line")
-        .attr("x1", function(d){return(x(d.value.min))})
+        .attr("x1", function(d){return(x(d.value.min))  })
         .attr("x2", function(d){return(x(d.value.min))})
         .attr("y1", function(d){return(y(d.key)+y.bandwidth())})
         .attr("y2", function(d){return(y(d.key) )})
@@ -798,27 +826,25 @@ const data1 = [];
       
     
     //scatter plot legend
-    // var chartData = [
-    //     {name: "Max Value", color: "red"},
-    //     {name: "Avarage Value", color: "green"},
-    //     {name: "Min Value", color: "blue"},
-   
-    //    ];
+    var chartData = [
+        {name: "Box Plot For", color: "red"}
+        
+       ];
 
 
-    //  //Initialize legend
-    // var legendItemSize = 12;
-    // var legendSpacing = 4;
-    // var xOffset = 50;
-    // var yOffset = 0;
-    // var legend = d3
-    // .select('#legend')
-    // .append('svg')
-    //     .attr('style', 'position:absolute;z-index:-9999999;')
-    //     .selectAll('.legendItem')
-    //     .data(chartData);
+     //Initialize legend
+    var legendItemSize = 12;
+    var legendSpacing = 4;
+    var xOffset = 50;
+    var yOffset = 0;
+    var legend = d3
+    .select('#legend')
+    .append('svg')
+    .attr('style', 'position:absolute;z-index: -99999;top: 20px;left: 40px;')
+        .selectAll('.legendItem')
+        .data(chartData);
 
-    // //Create legend items
+    //Create legend items
     // legend
     // .enter()
     // .append('rect')
@@ -833,14 +859,57 @@ const data1 = [];
     //             return `translate(${x}, ${y})`;
     //         });
 
-    // //Create legend labels
+    //Create legend labels
+    legend
+    .enter()
+    .append('text')
+    .attr('x', xOffset + legendItemSize + 5)
+    .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
+    .text(d => d.name);  
+
+    var chartData = [
+        {name: "The Feature Selected", color: "red"}
+        
+       ];
+
+
+     //Initialize legend
+    var legendItemSize = 12;
+    var legendSpacing = 4;
+    var xOffset = 50;
+    var yOffset = 0;
+    var legend = d3
+    .select('#legend')
+    .append('svg')
+    .attr('style', 'position:absolute;z-index: -99999;top: 20px;left: 125px;')
+        .selectAll('.legendItem')
+        .data(chartData);
+
+    //Create legend items
     // legend
     // .enter()
-    // .append('text')
-    // .attr('x', xOffset + legendItemSize + 5)
-    // .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
-    // .text(d => d.name);  
+    // .append('rect')
+    // .attr('class', 'legendItem')
+    // .attr('width', legendItemSize)
+    // .attr('height', legendItemSize)
+    // .style('fill', d => d.color)
+    // .attr('transform',
+    //         (d, i) => {
+    //             var x = xOffset;
+    //             var y = yOffset + (legendItemSize + legendSpacing) * i;
+    //             return `translate(${x}, ${y})`;
+    //         });
 
+    //Create legend labels
+    legend
+    .enter()
+    .append('text')
+    .attr('x', xOffset + legendItemSize + 5)
+    .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
+    .text(d => d.name);  
+
+
+    
     });
     
 

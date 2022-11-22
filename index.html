@@ -32,7 +32,7 @@
       <link rel="stylesheet" href="style.css">
       
     </head>
-    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+    <body id="myPage" >
 
       <div class="main">
       <div class="btn-group">      
@@ -41,11 +41,11 @@
           <h5>Scenes</h5>
           <input type="radio" name="optradio" id="scince1" checked>
           
-          <label for="scince1">Scene 1</label>
+          <label for="scince1">FRIENDLY SCENE</label>
           <br>
           <br>
           <input type="radio" name="optradio" id="scince2">
-          <label for="scince2">Scene 2</label>
+          <label for="scince2">CONFRONTATIONAL SCENE</label>
         </div>
         <hr style="border-color: rgb(138, 137, 137);">
         <div>
@@ -90,9 +90,15 @@
           <!-- <button class="btn btn-info" role="button" id="submit">Click</button> -->
         </div>
       </div>
+      <div class="right-side">
+        <div class="area-chart">
+        <div class="histogram-area">
         <div id="histogramPlot" class="svk"></div>
         <div id="scatterPlot" class="svk1"></div>
-        
+      </div>
+        <div class="density-area">
+          <div class="density-title" id="density-title">
+            <span> GRAPH FOR ALL THE SUB FEATURES</span></div>
         <!-- in this part we have div for all denisty graph -->
         <div id="densityPlot" class="svk2"></div>
         <div id="densityPlot1" class="svk4"></div>
@@ -106,25 +112,35 @@
          <div id="densityPlot7" class="svk10"></div>
          <div id="densityPlot8" class="svk11"></div>
 
-
+        </div>
+      </div>
+        <div class="figure-area">
          <div id="figure1" class="figure1"></div>
          <div id="figure2" class="figure2"></div>
+        </div>
         <div id="densityplot2" class="svk3"></div>
         <!-- <div id="drawperson" class="person"></div> -->
         <div id="div_customContent"></div>
-
+      </div>
       </div>
   
       
 
       <script>
         callss()
-                
+              
+        var scene1clck=document.getElementById("scince1")
+        var scene2clck=document.getElementById("scince2")
+
         var temporalclick=document.getElementById("temporal")
         var sentimentclick=document.getElementById("sentiment")
         var pysholingusticclick=document.getElementById("pysholingustic")
         var emotionclick=document.getElementById("emotion")
         var lexicalclick=document.getElementById("lexical")
+
+        var SZcliclk=document.getElementById("SZ")
+        var BDcliclk=document.getElementById("BD")
+        var HCcliclk=document.getElementById("HC")
 
         var submitclick=document.getElementById("submit")
     
@@ -135,9 +151,12 @@
         var clickclassesSZ=document.getElementById("SZ")
         var clickclassesBD=document.getElementById("BD")
 
+        scene1clck.onclick=allls
+        scene2clck.onclick=allls
         lexicalclick.onclick=function(){
           document.getElementById("figure2").innerHTML=""
           document.getElementById("figure1").innerHTML=""
+          
           document.querySelector("#densityPlot").innerHTML=""
           document.querySelector("#densityPlot1").innerHTML=""
           document.querySelector("#densityPlo2").innerHTML=""
@@ -160,7 +179,7 @@
           document.querySelector("#densityPlot8").style.backgroundColor=""
           var classesChecked=document.querySelectorAll('input[name=optradio2]:checked')
           var valueOfTopics=document.querySelectorAll('input[name=topics]:checked')
-
+          document.querySelector("#density-title").style.display="none";
           document.querySelector('#histogramPlot').innerHTML=""
           document.querySelector('#scatterPlot').innerHTML=""
           var givenurl
@@ -246,7 +265,7 @@
           document.querySelector("#densityPlot8").style.backgroundColor=""
           var classesChecked=document.querySelectorAll('input[name=optradio2]:checked')
           var valueOfTopics=document.querySelectorAll('input[name=topics]:checked')
-
+          document.querySelector("#density-title").style.display="none";
           document.querySelector('#histogramPlot').innerHTML=""
           document.querySelector('#scatterPlot').innerHTML=""
           var givenurl
@@ -333,7 +352,7 @@
           document.querySelector("#densityPlot8").style.backgroundColor=""
           var classesChecked=document.querySelectorAll('input[name=optradio2]:checked')
           var valueOfTopics=document.querySelectorAll('input[name=topics]:checked')
-
+          document.querySelector("#density-title").style.display="none";
           document.querySelector('#histogramPlot').innerHTML=""
           document.querySelector('#scatterPlot').innerHTML=""
           var givenurl
@@ -418,7 +437,7 @@
           document.querySelector("#densityPlot8").style.backgroundColor=""
           var classesChecked=document.querySelectorAll('input[name=optradio2]:checked')
           var valueOfTopics=document.querySelectorAll('input[name=topics]:checked')
-
+          document.querySelector("#density-title").style.display="none";
           document.querySelector('#histogramPlot').innerHTML=""
           document.querySelector('#scatterPlot').innerHTML=""
           var givenurl
@@ -506,7 +525,7 @@
           document.querySelector("#densityPlot8").style.backgroundColor=""
           var classesChecked=document.querySelectorAll('input[name=optradio2]:checked')
           var valueOfTopics=document.querySelectorAll('input[name=topics]:checked')
-
+          document.querySelector("#density-title").style.display="none";
           document.querySelector('#histogramPlot').innerHTML=""
           document.querySelector('#scatterPlot').innerHTML=""
           var givenurl
@@ -594,7 +613,95 @@
           document.querySelector("#figure1").style.backgroundColor=""
           var classesChecked=document.querySelectorAll('input[name=optradio2]:checked')
           var valueOfTopics=document.querySelectorAll('input[name=topics]:checked')
+          document.querySelector("#density-title").style.display="none";
+          document.querySelector('#histogramPlot').innerHTML=""
+          document.querySelector('#scatterPlot').innerHTML=""
+          var givenurl
+          var givenTopic
+          var givenclass
+          iddensity2="#densityplot2"
+          iddensity="#densityPlot"
+          idscat="#scatterPlot"
+          idhist="#histogramPlot"
+          //console.log("hello0")
+          //console.log(document.querySelector('input[name=optradio]:checked'))
+          //console.log(document.querySelector('input[name=optradio2]:checked'))
+          document.querySelector("#density-title").style.display="none";
+          var valueOfSeseion=document.querySelector('input[name=optradio]:checked')
+          var valueOfclass=document.querySelector('input[name=optradio2]:checked')
+          
+         
+          // console.log(valueOfclass)
 
+          var checkedClasses = []
+
+          for (classChecked of classesChecked) {
+            if (classChecked.id == "BD") {
+              checkedClasses.push([2,"#1b9e77"])//turtle color
+
+            }
+            if (classChecked.id == "SZ") {
+              checkedClasses.push([1,"#d95f02"])//green color
+
+            }
+            if (classChecked.id == "HC") {
+              checkedClasses.push([0,"#7570b3"])//blue color
+            }
+          }
+          const titles = {    
+        "temporal":["mean_time","max_time"],
+        "sentiment":["positive","negative"],
+        "pysholingustic":["WC","Clout","Tone","WPS","Dic","Analytic","Authentic","Linguistic","label"],
+        "emotion":["sadness","fear","anger","disgust","anticipation","joy","surprise","trust","label"],
+        "lexical":["i","we","you","shehe","they","ipron","det","article","label"]};
+
+        const newtitles={}
+          for(topic of valueOfTopics){
+            newtitles[topic.id]=titles[topic.id]
+            
+
+          }
+          //console.log(checkedClasses)
+
+          if(valueOfSeseion["id"]=="scince1"){
+              givenurl="dosyalar/all_features_300_scene_1_complete.csv"
+              gethistogram(newtitles,checkedClasses[0][1],checkedClasses[1][1],checkedClasses[0][0],checkedClasses[1][0],idhist,idscat,givenurl,iddensity)
+            
+            }
+
+          else if(valueOfSeseion["id"]=="scince2"){              
+              givenurl="dosyalar/all_features_300_scene_2_complete.csv"
+              gethistogram(newtitles,checkedClasses[0][1],checkedClasses[1][1],checkedClasses[0][0],checkedClasses[1][0],idhist,idscat,givenurl,iddensity)
+          }
+        }
+
+        function allls(){
+          document.getElementById("figure2").innerHTML=""
+          document.getElementById("figure1").innerHTML=""
+          document.querySelector("#densityPlot").innerHTML=""
+          document.querySelector("#densityPlot1").innerHTML=""
+          document.querySelector("#densityPlo2").innerHTML=""
+          document.querySelector("#densityPlot3").innerHTML=""
+          document.querySelector("#densityPlot4").innerHTML=""
+          document.querySelector("#densityPlot5").innerHTML=""
+          document.querySelector("#densityPlot6").innerHTML=""
+          document.querySelector("#densityPlot7").innerHTML=""
+          document.querySelector("#densityPlot8").innerHTML=""
+          document.querySelector("#figure2").style.backgroundColor=""
+          document.querySelector("#figure1").style.backgroundColor=""
+          document.querySelector("#densityPlot").style.backgroundColor=""
+          document.querySelector("#densityPlot1").style.backgroundColor=""
+          document.querySelector("#densityPlo2").style.backgroundColor=""
+          document.querySelector("#densityPlot3").style.backgroundColor=""
+          document.querySelector("#densityPlot4").style.backgroundColor=""
+          document.querySelector("#densityPlot5").style.backgroundColor=""
+          document.querySelector("#densityPlot6").style.backgroundColor=""
+          document.querySelector("#densityPlot7").style.backgroundColor=""
+          document.querySelector("#densityPlot8").style.backgroundColor=""
+          var classesChecked=document.querySelectorAll('input[name=optradio2]:checked')
+          var valueOfTopics=document.querySelectorAll('input[name=topics]:checked')
+          document.querySelector("#density-title").style.display="none";
+          console.log(document.querySelector("#density-title"),'density-title')
           document.querySelector('#histogramPlot').innerHTML=""
           document.querySelector('#scatterPlot').innerHTML=""
           var givenurl
@@ -655,8 +762,6 @@
               gethistogram(newtitles,checkedClasses[0][1],checkedClasses[1][1],checkedClasses[0][0],checkedClasses[1][0],idhist,idscat,givenurl,iddensity)
           }
         }
-
-
         
       //console.log(document.querySelectorAll('input[name=optradio2]'))
       var classes=document.querySelectorAll('input[name=optradio2]')
@@ -673,11 +778,9 @@
             e.target.checked=false;
           }
           else if(classesChecked.length==2){
-            document.getElementById("submit").disabled = false;
+           allls()
           }
-          else if(classesChecked.length<2){
-            document.getElementById("submit").disabled = true;
-          }
+         
         });
       }
       </script>

@@ -1,7 +1,7 @@
 
 
 function fuc(subfeatur){
-    document.querySelector("#figure2").style.backgroundColor="#bdbdbd"
+    // document.querySelector("#figure2").style.backgroundColor="#bdbdbd"
     document.getElementById("figure2").innerHTML=""
 
 // console.log(subfeatur)
@@ -115,7 +115,7 @@ d3.csv("dosyalar/all_features_300_scene_2_complete.csv").then( function(data2) {
         var keylist=[]
         
         var rangeValue=list[0]/5
-        rangeValue=Math.floor(rangeValue)
+        rangeValue=Math.ceil(rangeValue)
         
         //key1,key2,key3,key4,key5
 
@@ -188,9 +188,10 @@ d3.csv("dosyalar/all_features_300_scene_2_complete.csv").then( function(data2) {
 
     function getmx(len0,len1,len2,list){
         var keylist=[]
+        console.log(keylist)
         
         var rangeValue=list[0]/5
-        rangeValue=Math.floor(rangeValue)
+        rangeValue=Math.ceil(rangeValue)
         
    
         //key1
@@ -307,7 +308,7 @@ var x1values=[[x1[0].key,lookinlist(x1[0].value[0]),//ydomain1
 
 function lookinlist(value){
     if(value==1){
-        value=[1]
+        value=[5]
     }
 if(value<=5){
     value=[5]//1
@@ -343,7 +344,7 @@ if(value>50){
     value=[5,10,15,20,25,30,35,40,45,50]
 }
 if(value==undefined){
-    value=[]
+    value=[5,10,15,20,25,30,35,40,45,50]
 }
 return value
 
@@ -651,8 +652,8 @@ svg1.selectAll("mycircle")
 
   })}) 
   var chartData = [
-    {name:subfeatur,color:"black"},
-    {name:"Scene1",color:"red"},
+    {name:subfeatur,color:"transparent"},
+    {name:"scene-Friendly",color:"transparent"},
     {name:"HC",color:"#d95f02"},
     {name:"BD",color:"#1b9e77"},
     {name:"SZ",color:"#7570b3"}
@@ -669,7 +670,7 @@ svg1.selectAll("mycircle")
         var legend = d3
         .select("#figure2")
         .append('svg')
-            .attr('style', 'position:absolute;top: -78px;left: 125px;')
+            .attr('style', 'position:absolute;z-index: -99999;top: -78px;left: 125px;')
             .selectAll('.legendItem')
             .data(chartData);
     
@@ -699,7 +700,7 @@ svg1.selectAll("mycircle")
 }
 
 function fuc1(subfeatur){
-    document.querySelector("#figure1").style.backgroundColor="#bdbdbd"
+    // document.querySelector("#figure1").style.backgroundColor="#bdbdbd"
     document.getElementById("figure1").innerHTML=""
 
 // document.getElementById("figure1").innerHTML=" "
@@ -811,7 +812,8 @@ d3.csv("dosyalar/all_features_300_scene_2_complete.csv").then( function(data1) {
         var keylist=[]
         
         var rangeValue=list[0]/5
-        rangeValue=Math.floor(rangeValue)
+        rangeValue=Math.ceil(rangeValue)
+
         
         //key1,key2,key3,key4,key5
 
@@ -886,7 +888,8 @@ d3.csv("dosyalar/all_features_300_scene_2_complete.csv").then( function(data1) {
         var keylist=[]
         
         var rangeValue=list[0]/5
-        rangeValue=Math.floor(rangeValue)
+        rangeValue=Math.ceil(rangeValue)
+
         
    
         //key1
@@ -1036,7 +1039,7 @@ if(value>50){
     value=[5,10,15,20,25,30,35,40,45,50]
 }
 if(value==undefined){
-    value=[]
+    value=[5,10,15,20,25,30,35,40,45,50]
 }
 return value
 
@@ -1338,7 +1341,7 @@ function(d){
 
   var chartData = [
     // {name:subfeatur,color:"black"},
-    {name:"Scene2",color:"red"}
+    {name:"scene-Confrontational",color:"transparent"}
     // {name:"HC",color:"#d95f02"},
     // {name:"BD",color:"#1b9e77"},
     // {name:"SZ",color:"#7570b3"}
@@ -1355,7 +1358,7 @@ function(d){
         var legend = d3
         .select("#figure1")
         .append('svg')
-            .attr('style', 'position:absolute;top: -14px;left: 125px;')
+            .attr('style', 'position:absolute;z-index: -99999;top: -10px;left: 125px;')
             .selectAll('.legendItem')
             .data(chartData);
     
@@ -1381,6 +1384,103 @@ function(d){
         .attr('x', xOffset + legendItemSize + 5)
         .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
         .text(d => d.name);  
+
+
+
+        var chartData = [
+            // {name:subfeatur,color:"black"},
+            {name:"Pictogram Showing The Comparision",color:"transparent"}
+            
+            // {name:"HC",color:"#d95f02"},
+            // {name:"BD",color:"#1b9e77"},
+            // {name:"SZ",color:"#7570b3"}
+          
+            
+            
+          
+           ];
+          var legendItemSize = 12;
+          // console.log("hello7")
+                var legendSpacing = 4;
+                var xOffset = 0;
+                var yOffset = 0;
+                var legend = d3
+                .select("#figure1")
+                .append('svg')
+                    .attr('style', 'position:absolute;z-index: -99999;top: -40px;left: 135px;')
+                    .selectAll('.legendItem')
+                    .data(chartData);
+            
+                //Create legend items
+                // legend
+                // .enter()
+                // .append('rect')
+                // .attr('class', 'legendItem')
+                // .attr('width', legendItemSize)
+                // .attr('height', legendItemSize) 
+                // .style('fill', d => d.color)
+                // .attr('transform',
+                //         (d, i) => {
+                //             var x = xOffset;
+                //             var y = yOffset + (legendItemSize + legendSpacing) * i;
+                //             return `translate(${x}, ${y})`;
+                //         });
+            
+                //Create legend labels
+                legend
+                .enter()
+                .append('text')
+                .attr('x', xOffset + legendItemSize -5)
+                .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
+                .text(d => d.name);  
+
+                var chartData = [
+                    // {name:subfeatur,color:"black"},
+                    {name:"Of cohorts In Both The Sceness",color:"transparent"}
+                   
+                    // {name:"HC",color:"#d95f02"},
+                    // {name:"BD",color:"#1b9e77"},
+                    // {name:"SZ",color:"#7570b3"}
+                  
+                    
+                    
+                  
+                   ];
+                  var legendItemSize = 12;
+                  // console.log("hello7")
+                        var legendSpacing = 4;
+                        var xOffset = 0;
+                        var yOffset = 0;
+                        var legend = d3
+                        .select("#figure1")
+                        .append('svg')
+                            .attr('style', 'position:absolute;z-index: -99999;top: -24px;left: 150px;')
+                            .selectAll('.legendItem')
+                            .data(chartData);
+                    
+                        //Create legend items
+                        // legend
+                        // .enter()
+                        // .append('rect')
+                        // .attr('class', 'legendItem')
+                        // .attr('width', legendItemSize)
+                        // .attr('height', legendItemSize) 
+                        // .style('fill', d => d.color)
+                        // .attr('transform',
+                        //         (d, i) => {
+                        //             var x = xOffset;
+                        //             var y = yOffset + (legendItemSize + legendSpacing) * i;
+                        //             return `translate(${x}, ${y})`;
+                        //         });
+                    
+                        //Create legend labels
+                        legend
+                        .enter()
+                        .append('text')
+                        .attr('x', xOffset + legendItemSize )
+                        .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
+                        .text(d => d.name);  
+       
         // drawperson(id)
 
 }
