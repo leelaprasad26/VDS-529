@@ -228,7 +228,7 @@ h3, h4 {
     position: absolute;
     left: 225px;
     top: 85px;
-    height: 350px;
+    height: 300px;
     width: 450px;
 }
 
@@ -245,74 +245,74 @@ h3, h4 {
     position: absolute;
     left: 0px;
     top: 42px;
-    height: 400px;
-    width: 400px;
+    height: 250px;
+    width: 250px;
 }
 
 .svk4 {
     position: absolute;
-    left: 440px;
+    left: 290px;
     top: 42px;
-    height: 400px;
-    width: 400px;
+    height: 250px;
+    width: 250px;
 }
 
 .svk5 {
     position: absolute;
-    left: 0px;
-    top: 470px;
-    height: 400px;
-    width: 400px;
+    left: 580px;
+    top: 42px;
+    height: 250px;
+    width: 250px;
 }
 
 
 .svk6 {
     position: absolute;
-    left: 440px;
-    top: 470px;
-    height: 400px;
-    width: 400px;
+    left: 0px;
+    top: 334px;
+    height: 250px;
+    width: 250px;
 }
 
 .svk7 {
     position: absolute;
-    left: 0px;
-    top: 900px;
-    height: 400px;
-    width: 400px;
+    left: 290px;
+    top: 334px;
+    height: 250px;
+    width: 250px;
 }
 
 .svk8 {
     position: absolute;
-    left: 440px;
-    top: 900px;
-    height: 400px;
-    width: 400px;
+    left: 580px;
+    top: 334px;
+    height: 250px;
+    width: 250px;
 }
 
 
 .svk9 {
     position: absolute;
     left: 0px;
-    top: 1330px;
-    height: 400px;
-    width: 400px;
+    top: 626px;
+    height: 250px;
+    width: 250px;
 }
 
 .svk10 {
     position: absolute;
-    left: 440px;
-    top: 1330px;
-    height: 400px;
-    width: 400px;
+    left: 290px;
+    top: 626px;
+    height: 250px;
+    width: 250px;
 }
 
 .svk11 {
     position: absolute;
-    left: 0px;
-    top: 1765px;
-    height: 400px;
-    width: 400px;
+    left: 580px;
+    top: 626px;
+    height: 250px;
+    width: 250px;
 }
 
 .grid-lines line {

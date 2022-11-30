@@ -1,4 +1,4 @@
-function drawdensity(subfeatures, id) {
+async function drawdensity(subfeatures, id) {
     document.querySelector("#figure2").style.backgroundColor = ""
 
     document.querySelector("#figure1").style.backgroundColor = ""
@@ -16,13 +16,13 @@ function drawdensity(subfeatures, id) {
     document.querySelector(id).style.backgroundColor = "#bdbdbd"
 
 
-// set the dimensions and margins of the graph
-    const margin = {top: 30, right: 30, bottom: 30, left: 50},
-        width = 400 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
+    // set the dimensions and margins of the graph
+    const margin = { top: 30, right: 30, bottom: 30, left: 50 },
+        width = 250 - margin.left - margin.right,
+        height = 250 - margin.top - margin.bottom;
 
     // console.log("hello1")
-// append the svg object to the body of the page
+    // append the svg object to the body of the page
     const svg = d3.select(id)
         .append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -30,7 +30,7 @@ function drawdensity(subfeatures, id) {
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-// get the data
+    // get the data
     function getlabel(data) {
 
         if (data["label"] == "2") {
@@ -39,7 +39,7 @@ function drawdensity(subfeatures, id) {
     }
 
     var array = getmaxmin(subfeatures)
-// console.log(array)
+    // console.log(array)
 
 
     d3.csv("dosyalar/all_features_300_scene_1_complete.csv").then(function (data1) {
@@ -81,15 +81,31 @@ function drawdensity(subfeatures, id) {
             //     .attr('d', line);
 
 
-//  console.log(data1)
+            //  console.log(data1)
 
             // add the x Axis
+            console.log("array", array);
+            console.log("width", width);
+            console.log("height", height);
+
             const x = d3.scaleLinear()
-                .domain([array[1], array[0]])//grafiğnin cizilmesi buna bağlı
-                .range([0, width]);
+                .domain([array[1], array[0]])
+                .range([0, width])
+          
+         
+            // var xAxis = d3.svg.axis()
+            //     .scale(x)
+            //     .tickValues(d3.range(axisScale.domain()[0], axisScale.domain()[1] + 10, 10));
+            // const xx=axis(d3.scaleLinear()
+            // .domain([array[1], array[0]])
+            // .range([0, width]))
+            // .ticks(10)
+            // .render()
+
             svg.append("g")
                 .attr("transform", `translate(0, ${height})`)
-                .call(d3.axisBottom(x));
+                .call(d3.axisBottom(x).ticks(5))
+
             // console.log("hello4")
             // add the y Axis
             const y = d3.scaleLinear()
@@ -179,7 +195,7 @@ function drawdensity(subfeatures, id) {
                 })
                 .on("mousemove", function (d) {
                     // console.log(d);
-                    return (tooltip2.html("Scene:2" + "<br>" + "Subfeature: " + subfeatures)).style("top", (event.pageY -40) + "px").style("left", (event.pageX - 370) + "px");
+                    return (tooltip2.html("Scene:2" + "<br>" + "Subfeature: " + subfeatures)).style("top", (event.pageY - 40) + "px").style("left", (event.pageX - 370) + "px");
                 })
                 .on("mouseout", function (d) {
                     return tooltip2.style("visibility", "hidden");
@@ -213,15 +229,15 @@ function drawdensity(subfeatures, id) {
     });
 
 
-// Function to compute density
+    // Function to compute density
 
     var chartData = [
-        {name: "Scene1", color: "rgb(255 0 0 / 40%)"},
+        { name: "Scene1", color: "rgb(255 0 0 / 40%)" },
 
 
     ];
     var legendItemSize = 12;
-// console.log("hello7")
+    // console.log("hello7")
     var legendSpacing = 4;
     var xOffset = 00;
     var yOffset = 0;
@@ -264,7 +280,7 @@ function drawdensity(subfeatures, id) {
 
 
     var chartData = [
-        {name: "Scene2", color: "#0008ff54"}
+        { name: "Scene2", color: "#0008ff54" }
 
 
     ];
@@ -324,7 +340,7 @@ function drawdensity(subfeatures, id) {
 
     var chartData = [
 
-        {name: subfeatures}
+        { name: subfeatures }
 
     ];
     var legendItemSize = 12;
