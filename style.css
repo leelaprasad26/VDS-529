@@ -1,101 +1,159 @@
 body {
     font: 400 15px/1.8 Lato, sans-serif;
     color: #777;
-  }
-  h3, h4 {
+}
+
+.header-title {
+    text-align: center;
+    font-size: 30px;
+    color: black;
+}
+
+.btn-group h2 {
+    font-size: 18px;
+}
+
+.main {
+    position: relative;
+    /* overflow-x: hidden; */
+}
+
+.density-area {
+    position: absolute;
+    top: 445px;
+    left: 230px;
+}
+
+.density-title {
+    width: 280px;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    align-items: center;
+    color: white;
+}
+
+.ht {
+    height: 2000px;
+    width: 2000px;
+}
+
+label {
+    margin: 0;
+}
+
+h3, h4 {
     margin: 10px 0 30px 0;
-    letter-spacing: 10px;      
+    letter-spacing: 10px;
     font-size: 20px;
     color: #111;
-  }
-  .main{
-    height: 100%;
-    width: 100%;
-    position: relative;
-    overflow-y: auto;
-    display: flex;
-  }
-  .container {
+}
+
+.container {
     padding: 80px 120px;
-  }
-  .person {
+}
+
+.person {
     border: 10px solid transparent;
     margin-bottom: 25px;
     width: 80%;
     height: 80%;
     opacity: 0.7;
-  }
-  .person:hover {
+}
+
+.person:hover {
     border-color: #f1f1f1;
-  }
-  .carousel-inner img {
+}
+
+.carousel-inner img {
     -webkit-filter: grayscale(90%);
-    filter: grayscale(90%); /* make all photos black and white */ 
+    filter: grayscale(90%); /* make all photos black and white */
     width: 100%; /* Set width to 100% */
     margin: auto;
-  }
-  .carousel-caption h3 {
+}
+
+.carousel-caption h3 {
     color: #fff !important;
-  }
-  @media (max-width: 600px) {
+}
+
+@media (max-width: 600px) {
     .carousel-caption {
-      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
     }
-  }
-  .bg-1 {
+}
+
+.bg-1 {
     background: #2d2d30;
     color: #bdbdbd;
-  }
-  .bg-1 h3 {color: #fff;}
-  .bg-1 p {font-style: italic;}
-  .list-group-item:first-child {
+}
+
+.bg-1 h3 {
+    color: #fff;
+}
+
+.bg-1 p {
+    font-style: italic;
+}
+
+.list-group-item:first-child {
     border-top-right-radius: 0;
     border-top-left-radius: 0;
-  }
-  .list-group-item:last-child {
+}
+
+.list-group-item:last-child {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-  }
-  .thumbnail {
+}
+
+.thumbnail {
     padding: 0 0 15px 0;
     border: none;
     border-radius: 0;
-  }
-  .thumbnail p {
+}
+
+.thumbnail p {
     margin-top: 15px;
     color: #555;
-  }
-  .btn {
+}
+
+.btn {
     padding: 10px 20px;
     background-color: #333;
     color: #f1f1f1;
     border-radius: 0;
     transition: .2s;
-  }
-  .btn:hover, .btn:focus {
+}
+
+.btn:hover, .btn:focus {
     border: 1px solid #333;
     background-color: #fff;
     color: #000;
-  }
-  .modal-header, h4, .close {
+}
+
+.modal-header, h4, .close {
     background-color: #333;
     color: #fff !important;
     text-align: center;
     font-size: 30px;
-  }
-  .modal-header, .modal-body {
+}
+
+.modal-header, .modal-body {
     padding: 40px 50px;
-  }
-  .nav-tabs li a {
+}
+
+.nav-tabs li a {
     color: #777;
-  }
-  #googleMap {
+}
+
+#googleMap {
     width: 100%;
     height: 400px;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-  }  
-  .navbar {
+}
+
+.navbar {
     font-family: Montserrat, sans-serif;
     margin-bottom: 0;
     background-color: #2d2d30;
@@ -103,155 +161,178 @@ body {
     font-size: 11px !important;
     letter-spacing: 4px;
     opacity: 0.9;
-  }
-  .navbar li a, .navbar .navbar-brand { 
+}
+
+.navbar li a, .navbar .navbar-brand {
     color: #d5d5d5 !important;
-  }
-  .navbar-nav li a:hover {
+}
+
+.navbar-nav li a:hover {
     color: #fff !important;
-  }
-  .navbar-nav li.active a {
+}
+
+.navbar-nav li.active a {
     color: #fff !important;
     background-color: #29292c !important;
-  }
-  .navbar-default .navbar-toggle {
+}
+
+.navbar-default .navbar-toggle {
     border-color: transparent;
-  }
-  .open .dropdown-toggle {
+}
+
+.open .dropdown-toggle {
     color: #fff;
     background-color: #555 !important;
-  }
-  .dropdown-menu li a {
+}
+
+.dropdown-menu li a {
     color: #000 !important;
-  }
-  .dropdown-menu li a:hover {
+}
+
+.dropdown-menu li a:hover {
     background-color: red !important;
-  }
-.btn-group{
-    position: relative;  
-    width: calc(350px - 20px);
-    padding: 20px;
-    margin: 20px;
-    overflow: auto;
-    height: calc(100vh - 50px);
-
-}
-.density-title{
-  width: calc(100% - 50px);
-  padding: 10px;
-  display: flex;
-  margin: 10px;
-  align-items: center;
-  background-color: gray;
-  color: white;
-}
-.right-side{
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-}
-.histogram-area, .density-area{
-  width: 1000px;
-  display: flex;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-}
-.figure-area{
-  display: flex;
-  width: 480px;
-  flex-wrap: wrap;
-  height: 1100px;
-}
-.figure1{
-  position: relative;    
-  height: 450px;
-  width: 480px;
-  padding: 10px;
-  margin-top: 70px;
 }
 
-.figure2{
-  position: relative;
-  height: 450px;
-  width: 480px;
+.btn-group {
+    padding: 35px 30px;
+}
 
+.form-group {
+    margin-bottom: 5px;
 }
-.person{
-  position: relative;
-  /* left: 380px;
-  top: -4500px; */
-  height: 600px;
-  width: 600px;
+
+.figure1 {
+    position: absolute;
+    left: 800px;
+    top: -320px;
+    /* top: -3590px; */
+    height: 340px;
 }
-.svk,.svk1,.svk2, .svk4,.svk5, .svk6,.svk7,.svk8,.svk9,.svk10,.svk11{
-    position: relative;
-    height: 450px;
+
+.figure2 {
+    position: absolute;
+    left: 800px;
+    top: 132px;
+    height: 340px;
+}
+
+.person {
+    position: absolute;
+    left: 380px;
+    top: -4500px;
+    height: 600px;
+    width: 600px;
+}
+
+.svk {
+    position: absolute;
+    left: 225px;
+    top: 85px;
+    height: 350px;
     width: 450px;
-    margin: 10px;
 }
-.svk1{
-  position: relative;
-  height: 450px;
-  width: 450px;
+
+.svk1 {
+    position: absolute;
+    left: 675px;
+    top: 85px;
+    height: 350px;
+    width: 450px;
 }
 
 /* density plot area */
-.svk2{
-  /* border: solid 1px #b8b8b8;
-  background-color: #bdbdbd ; */
-  position: relative;
-  height: 300px;
-  width: 300px;
+.svk2 {
+    position: absolute;
+    left: 0px;
+    top: 42px;
+    height: 400px;
+    width: 400px;
 }
-.svk4{
-  /* border: solid 1px #b8b8b8;
-  background-color: #bdbdbd ; */
-  position: relative;
- 
-  height: 300px;
-  width: 300px;
+
+.svk4 {
+    position: absolute;
+    left: 440px;
+    top: 42px;
+    height: 400px;
+    width: 400px;
 }
-.svk5{
-  position: relative;
-  height: 300px;
-  width: 300px;
+
+.svk5 {
+    position: absolute;
+    left: 0px;
+    top: 470px;
+    height: 400px;
+    width: 400px;
 }
 
 
-.svk6{
-  position: relative;
-  height: 300px;
-  width: 300px;
+.svk6 {
+    position: absolute;
+    left: 440px;
+    top: 470px;
+    height: 400px;
+    width: 400px;
 }
-.svk7{
-  position: relative;
-  height: 300px;
-  width: 300px;
+
+.svk7 {
+    position: absolute;
+    left: 0px;
+    top: 900px;
+    height: 400px;
+    width: 400px;
 }
-.svk8{
-  position: relative;
-  height: 300px;
-  width: 300px;
+
+.svk8 {
+    position: absolute;
+    left: 440px;
+    top: 900px;
+    height: 400px;
+    width: 400px;
 }
 
 
-.svk9{
-  position: relative;
-  height: 300px;
-  width: 300px;
+.svk9 {
+    position: absolute;
+    left: 0px;
+    top: 1330px;
+    height: 400px;
+    width: 400px;
 }
-.svk10{
-  position: relative;
-  height: 300px;
-  width: 300px;
+
+.svk10 {
+    position: absolute;
+    left: 440px;
+    top: 1330px;
+    height: 400px;
+    width: 400px;
 }
-.svk11{
-  position: relative;
-  height: 300px;
-  width: 300px;
+
+.svk11 {
+    position: absolute;
+    left: 0px;
+    top: 1765px;
+    height: 400px;
+    width: 400px;
 }
 
 .grid-lines line {
-  stroke: gray;
-  stroke-opacity: 0.2;
+    stroke: gray;
+    stroke-opacity: 0.2;
+}
+
+.divv {
+    position: absolute;
+    left: 250px;
+    top: 60px;
+}
+
+.svk3 {
+    position: absolute;
+    left: 0px;
+    top: -5000px;
+
+}
+
+g.axisblack {
+    color: #000;
 }
